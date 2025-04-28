@@ -1,0 +1,89 @@
+Last login: Mon Apr 28 16:16:11 on ttys004
+/Users/Gerardo/.zshrc:export:1: not valid in this context: 
+Gerardo@luiss-mac ~ % mysqlsh
+MySQL Shell 9.2.0
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  SQL > \c mc-- root@localhost
+Creating a session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 9
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > create database tbd_eva3;
+Query OK, 1 row affected (0.0182 sec)
+ MySQL  localhost:3306 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| Employees          |
+| HumanResourcesDB   |
+| information_schema |
+| mysql              |
+| Northwind          |
+| performance_schema |
+| prueba             |
+| sakila             |
+| sys                |
+| tbd_eva1           |
+| tbd_eva2           |
+| tbd_eva3           |
+| World              |
++--------------------+
+13 rows in set (0.0037 sec)
+ MySQL  localhost:3306 ssl  SQL > use sakila;
+Default schema set to `sakila`.
+Fetching global names, object names from `sakila` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  sakila  SQL > select count(*) from customer;
++----------+
+| count(*) |
++----------+
+|      599 |
++----------+
+1 row in set (0.0158 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > use tbd_eva1;
+Default schema set to `tbd_eva1`.
+Fetching global names, object names from `tbd_eva1` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  tbd_eva1  SQL > select regresa_valor();
+ERROR: 1305 (42000): FUNCTION tbd_eva1.regresa_valor does not exist
+ MySQL  localhost:3306 ssl  tbd_eva1  SQL > use tbd_eva3;
+Default schema set to `tbd_eva3`.
+Fetching global names, object names from `tbd_eva3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select regresa_valor();
++-----------------+
+| regresa_valor() |
++-----------------+
+|               1 |
++-----------------+
+1 row in set (0.0047 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > drop function regresa_valor;
+Query OK, 0 rows affected (0.0150 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select regresa_valor();
+ERROR: 1305 (42000): FUNCTION tbd_eva3.regresa_valor does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select hola(luis);
+ERROR: 1054 (42S22): Unknown column 'luis' in 'field list'
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select hola(;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select hola();
+ERROR: 1318 (42000): Incorrect number of arguments for FUNCTION tbd_eva3.hola; expected 1, got 0
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select hola("Luis");
++--------------+
+| hola("Luis") |
++--------------+
+| HOLA,Luis    |
++--------------+
+1 row in set (0.0541 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select sumar_numeros(1, 3);
+ERROR: 1305 (42000): FUNCTION tbd_eva3.sumar_numeros does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select sumar_numeros(1, 3);
++---------------------+
+| sumar_numeros(1, 3) |
++---------------------+
+|                   4 |
++---------------------+
+1 row in set (0.0059 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > 
