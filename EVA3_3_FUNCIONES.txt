@@ -1,0 +1,95 @@
+Last login: Fri May  9 22:03:10 on ttys000
+/Users/Gerardo/.zshrc:export:1: not valid in this context: 
+Gerardo@luiss-mac ~ % mysqlsh
+MySQL Shell 9.2.0
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  SQL > \c mc-- root@localhost
+Creating a session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 18
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > use tbd_eva3
+Default schema set to `tbd_eva3`.
+Fetching global names, object names from `tbd_eva3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select dia_semana(1) as dia;
++---------+
+| dia     |
++---------+
+| Domingo |
++---------+
+1 row in set (0.0193 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select dia_semana(2) as dia;
++-------+
+| dia   |
++-------+
+| Lunes |
++-------+
+1 row in set (0.0003 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > drop function dia_semana;
+Query OK, 0 rows affected (0.0111 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select dia_semana(2) as dia;
+ERROR: 1305 (42000): FUNCTION tbd_eva3.dia_semana does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select dia_semana(11) as dia;
+ERROR: 1305 (42000): FUNCTION tbd_eva3.dia_semana does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select dia_semana(10) as dia;
+ERROR: 1305 (42000): FUNCTION tbd_eva3.dia_semana does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > drop function dia_semana;
+ERROR: 1305 (42000): FUNCTION tbd_eva3.dia_semana does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select dia_semana(11) as dia;
+ERROR: 1305 (42000): FUNCTION tbd_eva3.dia_semana does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > drop function dia_semana;
+ERROR: 1305 (42000): FUNCTION tbd_eva3.dia_semana does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select dia_semana(11) as dia;
+ERROR: 1305 (42000): FUNCTION tbd_eva3.dia_semana does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select dia_semana(11) as dia;
+ERROR: 1305 (42000): FUNCTION tbd_eva3.dia_semana does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > drop function dia_semana;
+ERROR: 1305 (42000): FUNCTION tbd_eva3.dia_semana does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select dia_semana(11) as dia;
+ERROR: 1305 (42000): FUNCTION tbd_eva3.dia_semana does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select calificacion_letra(95);
++------------------------+
+| calificacion_letra(95) |
++------------------------+
+| A                      |
++------------------------+
+1 row in set (0.0006 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select calificacion_letra(65);
++------------------------+
+| calificacion_letra(65) |
++------------------------+
+| D                      |
++------------------------+
+1 row in set (0.0002 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select calificacion_letra(65) as cali;
++------+
+| cali |
++------+
+| D    |
++------+
+1 row in set (0.0001 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select calificacion_letra(110) as cali;
++-----------------------------+
+| cali                        |
++-----------------------------+
+| Calificacion no aprobatoria |
++-----------------------------+
+1 row in set (0.0001 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select calificacion_letra(76) as cali;
++------+
+| cali |
++------+
+| C    |
++------+
+1 row in set (0.0001 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > drop function calificacion_letra;
+Query OK, 0 rows affected (0.0008 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select calificacion_letra(65) as cali;
+ERROR: 1305 (42000): FUNCTION tbd_eva3.calificacion_letra does not exist
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > 
