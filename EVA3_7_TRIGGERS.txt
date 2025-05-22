@@ -1,0 +1,76 @@
+Last login: Thu May 22 16:28:10 on ttys003
+/Users/Gerardo/.zshrc:export:1: not valid in this context: 
+Gerardo@0 ~ % mysqlsh
+MySQL Shell 9.2.0
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  SQL > \c mc-- root@localhost
+Creating a session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 10
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > use tbd_eva3;
+Default schema set to `tbd_eva3`.
+Fetching global names, object names from `tbd_eva3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > insert into clientes value(3, "juan","perez");
+Query OK, 1 row affected (0.0126 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > insert into clientes value(4, "pedro","paramo");
+Query OK, 1 row affected (0.0028 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > insert into clientes value(5, "juan","rulfo");
+Query OK, 1 row affected (0.0028 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select * from bitacora;
++-------------+--------+
+| id_bitacora | nombre |
++-------------+--------+
+|           1 | juan   |
+|           2 | pedro  |
+|           3 | juan   |
++-------------+--------+
+3 rows in set (0.0014 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select * from bitacora;
++-------------+--------+
+| id_bitacora | nombre |
++-------------+--------+
+|           1 | juan   |
+|           2 | pedro  |
+|           3 | juan   |
++-------------+--------+
+3 rows in set (0.0022 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select crear_RFC();
++---------------+
+| crear_RFC()   |
++---------------+
+| XXXX112233000 |
++---------------+
+1 row in set (0.0231 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > insert into clientes value (6,"antonio", "perez");
+ERROR: 1136 (21S01): Column count doesn't match value count at row 1
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > insert into clientes(id_cliente, nombre, apellido) value (6,"antonio", "perez");
+Query OK, 1 row affected (0.0070 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select * from bitacora;
++-------------+---------+
+| id_bitacora | nombre  |
++-------------+---------+
+|           1 | juan    |
+|           2 | pedro   |
+|           3 | juan    |
+|           4 | antonio |
++-------------+---------+
+4 rows in set (0.0025 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > select * from clientes;
++------------+---------+--------------+---------------+
+| id_cliente | nombre  | apellido     | RFC           |
++------------+---------+--------------+---------------+
+|        301 | Juan    | Perez Jolote | NULL          |
+|          3 | juan    | perez        | NULL          |
+|          4 | pedro   | paramo       | NULL          |
+|          5 | juan    | rulfo        | NULL          |
+|          6 | antonio | perez        | XXXX112233000 |
++------------+---------+--------------+---------------+
+5 rows in set (0.0014 sec)
+ MySQL  localhost:3306 ssl  tbd_eva3  SQL > 
